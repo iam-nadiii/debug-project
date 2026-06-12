@@ -33,7 +33,7 @@ public class BookingService {
     }
 
     public List<Booking> getBookingsByConcert(Long concertId) {
-        return bookingRepository.findAll();
+        return bookingRepository.findByConcertId(concertId);
     }
 
     @Transactional
@@ -43,7 +43,7 @@ public class BookingService {
 
         // Check enough seats available
         if (concert.getAvailableSeats() < booking.getNumberOfTickets()) {
-            throw new RuntimeException("Not enough seats available");
+            throw new InsufficientSeatsException(concert.getAvailableSeats(), booking.getNumberOfTickets());
         }
 
         // Deduct seats
