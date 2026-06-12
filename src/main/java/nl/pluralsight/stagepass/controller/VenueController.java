@@ -2,6 +2,7 @@ package nl.pluralsight.stagepass.controller;
 
 import nl.pluralsight.stagepass.model.Venue;
 import nl.pluralsight.stagepass.service.VenueService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,7 +33,7 @@ public class VenueController {
     @PostMapping
     public ResponseEntity<Venue> createVenue(@RequestBody Venue venue) {
         Venue created = venueService.createVenue(venue);
-        return ResponseEntity.ok(created);
+        return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
 
     @PutMapping("/{id}")
@@ -45,7 +46,7 @@ public class VenueController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteVenue(@PathVariable Long id) {
         if (venueService.deleteVenue(id)) {
-            return ResponseEntity.ok().build();
+            return ResponseEntity.noContent().build();
         }
         return ResponseEntity.notFound().build();
     }
