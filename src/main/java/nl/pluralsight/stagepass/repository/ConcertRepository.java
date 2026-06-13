@@ -10,4 +10,6 @@ import java.util.List;
 @Repository
 public interface ConcertRepository extends JpaRepository<Concert, Long> {
     public List<Concert> findByArtistId(Long artistId);
+
+    public List<Concert> findByDateAfterOrderByDateAsc(LocalDate date);
 }
