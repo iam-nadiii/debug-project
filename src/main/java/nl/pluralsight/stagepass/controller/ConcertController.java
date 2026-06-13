@@ -34,6 +34,14 @@ public class ConcertController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/artist/{artistId}")
+    public ResponseEntity<List<Concert>> getConcertByArtistId(@PathVariable Long artistId) {
+        List<Concert> concerts =  concertService.getConcertsByArtistId(artistId);
+
+        return ResponseEntity.ok(concerts);
+
+    }
+
     @PostMapping
     public ResponseEntity<Concert> createConcert(@RequestBody Concert concert) {
         Concert created = concertService.createConcert(concert);
