@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="646d3239-5138-433d-a037-942f2aa46939" name="Changes" comment="features 1 and 2 added">
+    <list default="true" id="646d3239-5138-433d-a037-942f2aa46939" name="Changes" comment="feature 3 added">
+      <change afterPath="$PROJECT_DIR$/src/main/java/nl/pluralsight/stagepass/model/ConcertSummary.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nl/pluralsight/stagepass/controller/ConcertController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/pluralsight/stagepass/controller/ConcertController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/pluralsight/stagepass/repository/ConcertRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/pluralsight/stagepass/repository/ConcertRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nl/pluralsight/stagepass/service/ConcertService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/pluralsight/stagepass/service/ConcertService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/nl/pluralsight/stagepass/controller/ConcertController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/nl/pluralsight/stagepass/controller/ConcertController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/nl/pluralsight/stagepass/service/ConcertService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/nl/pluralsight/stagepass/service/ConcertService.class" afterDir="false" />
@@ -20,6 +20,13 @@
   <component name="EmbeddingIndexingInfo">
     <option name="cachedIndexableFilesCount" value="28" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -93,6 +100,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="nl.pluralsight.stagepass.controller" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -185,7 +197,15 @@
       <option name="project" value="LOCAL" />
       <updated>1781310981455</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="feature 3 added">
+      <option name="closed" value="true" />
+      <created>1781316337509</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1781316337509</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,6 +216,7 @@
     <MESSAGE value="bug 5 resolved" />
     <MESSAGE value="features 1 and 3 added" />
     <MESSAGE value="features 1 and 2 added" />
-    <option name="LAST_COMMIT_MESSAGE" value="features 1 and 2 added" />
+    <MESSAGE value="feature 3 added" />
+    <option name="LAST_COMMIT_MESSAGE" value="feature 3 added" />
   </component>
 </project>

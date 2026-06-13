@@ -1,9 +1,13 @@
 package nl.pluralsight.stagepass.service;
 
+import nl.pluralsight.stagepass.model.Booking;
 import nl.pluralsight.stagepass.model.Concert;
+import nl.pluralsight.stagepass.model.ConcertSummary;
+import nl.pluralsight.stagepass.repository.BookingRepository;
 import nl.pluralsight.stagepass.repository.ConcertRepository;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -14,10 +18,13 @@ import java.util.stream.Collectors;
 public class ConcertService {
 
     private final ConcertRepository concertRepository;
+    private final BookingRepository bookingRepository;
 
-    public ConcertService(ConcertRepository concertRepository) {
+    public ConcertService(ConcertRepository concertRepository, BookingRepository bookingRepository) {
         this.concertRepository = concertRepository;
+        this.bookingRepository = bookingRepository;
     }
+
 
     public List<Concert> getAllConcerts() {
         return concertRepository.findAll();
@@ -59,5 +66,30 @@ public class ConcertService {
 
     public List<Concert> getUpcomingConcerts() {
         return concertRepository.findByDateAfterOrderByDateAsc(LocalDate.now());
+    }
+
+    public ConcertSummary getConcertSummary(Long id) {
+        Concert concert = concertRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Concert not found"));
+
+        List<Booking> bookings = bookingRepository.findByConcertId(id);
+
+        int seatsBooked = bookings.stream()
+                .mapToInt(Booking::getNumberOfTickets)
+                .sum();
+
+        BigDecimal totalRevenue = bookings.stream()
+                .map(Booking::getTotalPrice)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+
+        return new ConcertSummary(
+                concert.getId(),
+                concert.getTitle(),
+                concert.getTotalSeats(),
+                seatsBooked,
+                concert.getAvailableSeats(),
+                totalRevenue
+        );
     }
 }
